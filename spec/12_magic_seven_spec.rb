@@ -70,34 +70,59 @@ describe MagicSeven do
   # Write a test for each of the following methods:
 
   describe '#subtract_four' do
+    it 'returns 12' do
+      previous_step = 16
+      result = game.subtract_four(previous_step)
+      expect(result).to eq(12)
+    end
   end
 
   describe '#divide_by_two' do
+    it 'returns 6' do
+      previous_step = 12
+      result = game.divide_by_two(previous_step)
+      expect(result).to eq(6)
+    end
   end
 
   # The following tests will need you to create new instances of MagicSeven with
   # a specific value for the random_number.
+  subject(:game_with_random_num) { described_class.new(19) }
   describe '#subtract_random_number' do
+    it 'should equal 7' do
+      previous_result = 26
+      result = game_with_random_num.subtract_random_number(previous_result)
+      expect(result).to eq(7)
+    end
   end
 
   # The #play method will always return seven! Test this game, using any
   # integer as the random_number. Update the context with the number.
   describe '#play' do
-    context 'when the random number is ...' do
+    context 'when the random number is 3' do
+      subject(:game_with_random_num) { described_class.new(3) }
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        result = game_with_random_num.play
+        expect(result).to eq(7)
       end
     end
 
-    context 'when the random number is ...' do
+    context 'when the random number is 2' do
+      subject(:game_with_random_num) { described_class.new(2) }
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        result = game_with_random_num.play
+        expect(result).to eq(7)
       end
     end
 
-    context 'when the random number is ...' do
+    context 'when the random number is 19' do
+      subject(:game_with_random_num) { described_class.new(2) }
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        result = game_with_random_num.play
+        expect(result).to eq(7)
       end
     end
   end
